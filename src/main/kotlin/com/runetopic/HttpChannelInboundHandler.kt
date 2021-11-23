@@ -16,7 +16,6 @@ internal class HttpChannelInboundHandler : SimpleChannelInboundHandler<DefaultHt
     private val javaConfigProperties by inject<JavConfigProperties>()
 
     override fun channelRead0(ctx: ChannelHandlerContext, msg: DefaultHttpRequest) {
-        println("sdfsfasdfasdfasfds")
         if (msg.decoderResult().isFailure) {
             ctx.channel().close()
             return

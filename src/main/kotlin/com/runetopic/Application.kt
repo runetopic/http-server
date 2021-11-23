@@ -32,8 +32,6 @@ fun main() {
             }
         })
         .childOption(ChannelOption.TCP_NODELAY, true)
-        .bind(InetSocketAddress( 8080))
+        .bind(InetSocketAddress(8080))
         .sync()
-
-    println("Hello World! FGuck u")
 }
