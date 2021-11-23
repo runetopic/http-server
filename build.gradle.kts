@@ -1,5 +1,7 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
+
 plugins {
-    kotlin("jvm") version "1.6.0"
+    kotlin("jvm")
     java
     application
     id("com.github.johnrengelman.shadow") version "7.1.0"
@@ -19,17 +21,17 @@ application {
     mainClass.set("com.runetopic.ApplicationKt")
 }
 
-plugins.withType<org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper> {
-    java.sourceCompatibility = JavaVersion.VERSION_16
-    java.targetCompatibility = JavaVersion.VERSION_16
+plugins.withType<KotlinPluginWrapper> {
+    java.sourceCompatibility = JavaVersion.VERSION_17
+    java.targetCompatibility = JavaVersion.VERSION_17
 
     tasks {
         compileKotlin {
-            kotlinOptions.jvmTarget = JavaVersion.VERSION_16.majorVersion
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
             kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
         }
         compileTestKotlin {
-            kotlinOptions.jvmTarget = JavaVersion.VERSION_16.majorVersion
+            kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
             kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
         }
     }

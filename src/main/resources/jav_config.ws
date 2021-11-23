@@ -1,6 +1,6 @@
 title=Xlite2
 initial_class=client.class
-codebase=http://127.0.0.1
+codebase=http://0.0.0.0
 applet_minwidth=1024
 applet_minheight=768
 cabbase=g.cab
@@ -15,8 +15,8 @@ unsignedurl=
 param=colourid=0
 param=worldid=1
 param=lobbyid=1
-param=lobbyaddress=127.0.0.2
-param=gameaddress=127.0.0.3
+param=lobbyaddress=0.0.0.1
+param=gameaddress=0.0.0.2
 param=demoid=0
 param=modewhere=0
 param=modewhat=0

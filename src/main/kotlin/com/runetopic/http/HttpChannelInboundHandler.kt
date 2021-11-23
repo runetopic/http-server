@@ -1,4 +1,4 @@
-package com.runetopic
+package com.runetopic.http
 
 import com.runetopic.api.extension.inject
 import com.runetopic.api.properties.JavConfigProperties
