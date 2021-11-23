@@ -2,7 +2,7 @@ FROM openjdk:17-alpine
 
 RUN apk add --no-cache bash
 
-WORKDIR /runetopic-http-server
+WORKDIR /http-server
 
 EXPOSE 80:8080
 

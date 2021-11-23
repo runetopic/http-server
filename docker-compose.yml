@@ -3,9 +3,9 @@ version: "3.6"
 services:
   app:
     build: ./
-    container_name: runetopic-http-server
+    container_name: http-server
     volumes:
-      - ./:/runetopic-http-server
+      - ./:/http-server
     expose:
       - 80:8080
     ports:
