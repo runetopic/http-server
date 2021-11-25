@@ -32,7 +32,7 @@ class HttpChannelAcceptor {
                 }
             })
             .childOption(ChannelOption.TCP_NODELAY, true)
-            .bind(InetSocketAddress(javaConfigProperties.codebase.removePrefix("http://"), 8080))
+            .bind(InetSocketAddress(8080))
             .sync()
     }
 }
