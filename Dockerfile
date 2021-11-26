@@ -1,9 +1,11 @@
 FROM openjdk:17-alpine
-
-RUN apk add --no-cache bash
-
-WORKDIR /http-server
-
+ENV directory /app/
+WORKDIR ${directory}
+ADD build/distributions/http-server-shadow-*.zip .
+RUN unzip -q -o *.zip
+RUN rm -fv *.zip
+RUN mv http-server-shadow*/* .
+RUN rm -rf http-server-shadow*/
+WORKDIR bin
 EXPOSE 80:8080
-
-CMD ./gradlew run
+ENTRYPOINT ./http-server
