@@ -7,5 +7,5 @@ RUN rm -fv *.zip
 RUN mv http-server-shadow*/* .
 RUN rm -rf http-server-shadow*/
 WORKDIR bin
-EXPOSE 80:8080
+EXPOSE 8080:8080
 ENTRYPOINT ./http-server
