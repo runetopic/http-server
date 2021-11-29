@@ -4,9 +4,11 @@ services:
   app:
     build: ./
     container_name: http-server
-    volumes:
-      - ./:/http-server
     expose:
       - 8080
     ports:
       - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
