@@ -15,7 +15,7 @@ unsignedurl=
 param=colourid=0
 param=worldid=1
 param=lobbyid=1
-param=lobbyaddress=127.0.0.2
+param=lobbyaddress=127.0.0.1
 param=gameaddress=127.0.0.3
 param=demoid=0
 param=modewhere=0

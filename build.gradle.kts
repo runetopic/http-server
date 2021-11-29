@@ -11,14 +11,17 @@ group = "org.com.runetopic"
 version = "1.0-SNAPSHOT"
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    implementation("io.netty:netty-all:4.1.70.Final")
-    implementation("com.runetopic.api:api:1.2.3-SNAPSHOT")
-    implementation("io.insert-koin:koin-core:3.1.3")
+    implementation("com.runetopic.api:api:1.2.9-SNAPSHOT")
+    implementation("io.ktor:ktor-server-core:1.6.6")
+    implementation("io.ktor:ktor-server-netty:1.6.6")
+    implementation("io.insert-koin:koin-core:3.1.4")
+    implementation("io.insert-koin:koin-ktor:3.1.4")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
 }
 
 application {
     mainClass.set("com.runetopic.ApplicationKt")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
 }
 
 plugins.withType<KotlinPluginWrapper> {
