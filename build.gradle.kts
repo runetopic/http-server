@@ -58,7 +58,7 @@ tasks.withType<JacocoReport> {
 
 sonarqube {
     properties {
-        property("sonar.projectKey", "runetopic_xlite")
+        property("sonar.projectKey", "runetopic_http-server")
         property("sonar.organization", "runetopic")
         property("sonar.sources", "src/main/")
         property("sonar.tests", "src/test/")
