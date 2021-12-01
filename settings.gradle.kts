@@ -13,6 +13,5 @@ dependencyResolutionManagement {
 pluginManagement {
     plugins {
         kotlin("jvm") version "1.6.0"
-        id("org.sonarqube") version "3.3"
     }
 }
