@@ -8,7 +8,19 @@ services:
       - 8080
     ports:
       - "8080:8080"
+    networks:
+      server:
+        ipv4_address: 172.26.0.2
     deploy:
       resources:
         limits:
           cpus: "0.1"
+
+networks:
+  server:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.26.0.0/16
+          gateway: 172.26.0.1
