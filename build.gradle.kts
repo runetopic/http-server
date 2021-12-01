@@ -11,12 +11,15 @@ group = "org.com.runetopic"
 version = "1.0-SNAPSHOT"
 
 dependencies {
-    implementation("com.runetopic.api:api:1.2.9-SNAPSHOT")
     implementation("io.ktor:ktor-server-core:1.6.6")
     implementation("io.ktor:ktor-server-netty:1.6.6")
     implementation("io.insert-koin:koin-core:3.1.4")
     implementation("io.insert-koin:koin-ktor:3.1.4")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
+}
+
+configurations.all {
+    resolutionStrategy.cacheDynamicVersionsFor(1, "minutes")
 }
 
 application {
