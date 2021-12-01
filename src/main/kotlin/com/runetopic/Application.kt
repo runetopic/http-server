@@ -1,29 +1,28 @@
 package com.runetopic
 
-import com.runetopic.api.properties.JavConfigProperties
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import org.koin.dsl.module
-import org.koin.ktor.ext.Koin
-import org.koin.ktor.ext.inject
 
 fun Application.module() {
-    install(Koin) {
-        modules(module {
-            single { JavConfigProperties() }
-        })
-    }
-
-    val javaConfigProperties: JavConfigProperties by inject()
-
     routing {
         get("/jav_config.ws") {
             call.respondBytes {
-                javaConfigProperties.asBytes
+                JavConfigResource.asBytes()
             }
+        }
+    }
+}
+
+private class JavConfigResource {
+    companion object {
+        fun asBytes(): ByteArray {
+            val reader = this::class.java.getResourceAsStream("/jav_config.ws")!!
+            val bytes = reader.readAllBytes()
+            reader.close()
+            return bytes
         }
     }
 }
