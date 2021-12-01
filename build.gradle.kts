@@ -5,10 +5,19 @@ plugins {
     java
     application
     id("com.github.johnrengelman.shadow") version "7.1.0"
+    id("org.sonarqube")
+    jacoco
 }
 
 group = "org.com.runetopic"
 version = "1.0-SNAPSHOT"
+
+apply(plugin = "jacoco")
+apply(plugin = "org.sonarqube")
+
+jacoco {
+    toolVersion = "0.8.7"
+}
 
 dependencies {
     implementation("com.runetopic.api:api:1.2.9-SNAPSHOT")
@@ -37,5 +46,29 @@ plugins.withType<KotlinPluginWrapper> {
             kotlinOptions.jvmTarget = JavaVersion.VERSION_17.majorVersion
             kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
         }
+    }
+}
+
+tasks.withType<JacocoReport> {
+    dependsOn(tasks["test"])
+    reports {
+        xml.required.set(true)
+    }
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "runetopic_xlite")
+        property("sonar.organization", "runetopic")
+        property("sonar.sources", "src/main/")
+        property("sonar.tests", "src/test/")
+        property("sonar.exclusions", "src/generated/")
+        property("sonar.jacoco.reportPath", "build/jacoco/test.exec")
+        property("sonar.junit.reportsPath","build/test-results/test")
+        property("sonar.core.codeCoveragePlugin","jacoco")
+        property("sonar.verbose", "true")
+        property("sonar.binaries" ,"build/classes/kotlin")
+        property("sonar.java.binaries" ,"build/classes/java, build/classes/kotlin")
+        property("sonar.dynamicAnalysis", "reuseReports")
     }
 }
